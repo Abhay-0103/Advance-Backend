@@ -1,0 +1,23 @@
+{
+  "name": "adavnce-backend",
+  "version": "1.0.0",
+  "description": "This project is an advanced backend application built using Node.js and Express.js. It provides a robust and scalable architecture for building RESTful APIs and handling various backend functionalities.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "javascript",
+    "backend",
+    "nodejs",
+    "express",
+    "restful-api",
+    "scalable-architecture"
+  ],
+  "author": "Abhay Singh",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
