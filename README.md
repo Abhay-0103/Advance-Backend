@@ -10,4 +10,3 @@ This project is an advanced backend application built using Node.js and Express.
 - Middleware for logging and request processing
 - Version control using tools like Git
 - Continuous learning and self-improvement
-- Performance optimization and scaling
