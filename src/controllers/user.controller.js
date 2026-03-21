@@ -241,17 +241,21 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 const getCurrentUser = asyncHandler(async (req, res) => {
     return res
         .status(200)
-        .json(200, req.user, "Current user fetched Successfully")
+        .json(new ApiResponse(
+            200,
+            req.user,
+            "Current user fetched Successfully"
+        ))
 })
 
 const updateAccountDetails = asyncHandler(async (req, res) => {
     const { fullName, email } = req.body
 
-    if (!fullName && !email) {
+    if (!fullName || !email) {
         throw new ApiError(400, "All fields are required")
     }
 
-    User.findByIdAndUpdate(
+    const user = await User.findByIdAndUpdate(
         req.user._id,
         {
             $set: {
@@ -268,7 +272,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
 })
 
 const updateUserAvatar = asyncHandler(async (req, res) => {
-    const avatarLocalPath =req.file?.path
+    const avatarLocalPath = req.file?.path
 
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar is required")
@@ -296,7 +300,7 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
 })
 
 const updateUserCoverImage = asyncHandler(async (req, res) => {
-    const coverImageLocalPath =req.file?.path
+    const coverImageLocalPath = req.file?.path
 
     if (!coverImageLocalPath) {
         throw new ApiError(400, "cover-Image is required")
@@ -318,7 +322,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
         { returnDocument: "after" }
     ).select("-password")
 
-        return res
+    return res
         .status(200)
         .json(new ApiResponse(200, user, "Cover image updated successfully"))
 })
