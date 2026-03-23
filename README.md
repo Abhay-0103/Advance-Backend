@@ -2,7 +2,7 @@
 
 An Express + MongoDB backend for user authentication, profile management, media upload, and channel-related user data.
 
-This repository currently exposes user-focused APIs under a versioned REST namespace and uses JWT + HTTP-only cookies for session flow.
+This repo currently exposes user-focused APIs under a versioned REST namespace and uses JWT + HTTP-only cookies for session flow.
 
 ## Table of Contents
 
